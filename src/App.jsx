@@ -1,91 +1,30 @@
 import "./App.css";
-import { useCallback } from "react";
-import Particles from "react-particles";
-import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
+import Particle from "./Particle";
+// import { useCallback } from "react";
+// import Particles from "react-particles";
+// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
+// import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 
 function App() {
-    const particlesInit = useCallback(async (engine) => {
-        console.log(engine);
+    // const particlesInit = useCallback(async (engine) => {
+    //     console.log(engine);
 
-        // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
-        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-        // starting from v2 you can add only the features you need reducing the bundle size
-        await loadFull(engine);
-        await loadSlim(engine);
-    }, []);
+    //     // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
+    //     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    //     // starting from v2 you can add only the features you need reducing the bundle size
+    //     await loadFull(engine);
+    //     await loadSlim(engine);
+    // }, []);
 
-    const particlesLoaded = useCallback(async (container) => {
-        setTimeout(() => {
-            container.pause();
-        }, 4000);
-    }, []);
-
-    const configs = {
-        particles: {
-            stroke: {
-                width: 5,
-                color: {
-                    value: [
-                        "#5bc0eb",
-                        "#fde74c",
-                        "#9bc53d",
-                        "#e55934",
-                        "#fa7921",
-                        "#2FF3E0",
-                        "#F8D210",
-                        "#FA26A0",
-                        "#F51720",
-                    ],
-                },
-            },
-            shape: {
-                type: "square",
-                options: {
-                    square: {
-                        fill: false,
-                    },
-                },
-            },
-            rotate: {
-                value: 0,
-                direction: "counter-clockwise",
-                animation: {
-                    enable: true,
-                    speed: 2,
-                    sync: true,
-                },
-            },
-            size: {
-                value: { min: 1, max: 500 },
-                animation: {
-                    enable: true,
-                    startValue: "min",
-                    speed: 60,
-                    sync: true,
-                    destroy: "max",
-                },
-            },
-        },
-        background: {
-            color: "#000",
-        },
-        emitters: {
-            direction: "top",
-            position: {
-                y: 50,
-                x: 50,
-            },
-            rate: {
-                delay: 1,
-                quantity: 1,
-            },
-        },
-    };
+    // const particlesLoaded = useCallback(async (container) => {
+    //     setTimeout(() => {
+    //         container.pause();
+    //     }, 4000);
+    // }, []);
 
     return (
         <>
-            <Particles
+            {/* <Particles
                 id="tsparticles"
                 init={particlesInit}
                 loaded={particlesLoaded}
@@ -144,7 +83,15 @@ function App() {
 
                     detectRetina: true,
                 }}
-            />
+            /> */}
+            <div className="container">
+                <img src="/osoba.png" alt="osoba" className="osoba" />
+                <div className="particles">
+                    {Array.from({ length: 20 }).map((_, i) => (
+                        <Particle delay={i} duration={(i + 1) * 250} key={i} />
+                    ))}
+                </div>
+            </div>
         </>
     );
 }
