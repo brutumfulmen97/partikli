@@ -87,7 +87,7 @@ function App() {
             <div className="container">
                 <img src="/osoba.png" alt="osoba" className="osoba" />
                 <div className="particles">
-                    {Array.from({ length: 20 }).map((_, i) => (
+                    {Array.from({ length: 40 }).map((_, i) => (
                         <Particle delay={i} duration={(i + 1) * 250} key={i} />
                     ))}
                 </div>
