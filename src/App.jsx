@@ -42,7 +42,7 @@ function App() {
                                 default: "none",
                             },
                             random: true,
-                            speed: 6,
+                            speed: 12,
                             straight: true,
                         },
                         number: {
