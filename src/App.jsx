@@ -18,7 +18,7 @@ function App() {
     const particlesLoaded = useCallback(async (container) => {
         setTimeout(() => {
             container.pause();
-        }, 2000);
+        }, 4000);
     }, []);
 
     const configs = {
